@@ -150,6 +150,7 @@
     <None Include="Graphics\connect.png" />
     <None Include="Graphics\disconnect.png" />
     <None Include="Graphics\Start.png" />
+    <None Include="SpindleTalker2.zip" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Graphics\Stop red.png" />
