@@ -130,6 +130,10 @@ namespace SpindleTalker2
                 Thread.Sleep(500);
                 Settings.graphsForm.ZeroAll();
                 groupBoxSpindleControl.Enabled = false;
+                groupBoxSpindleControl.Enabled = false;
+                groupBoxQuickSets.Enabled = false;
+                ChangeGtrackbarColours(false);
+                Settings.ClearVFDSettings();
                 toolStripStatusRPM.Text = "Current RPM Unknown (Not Connected)";
                 toolStripStatusRPM.Image = Resources.orangeLED;
             }
@@ -256,8 +260,6 @@ namespace SpindleTalker2
             buttonStart.Image = (checkBoxReverse.Checked ? Resources.Reverse : Resources.Start);
         }
 
-        #endregion
-
         private void timerInitialPoll_Tick(object sender, EventArgs e)
         {
             if (Settings.VFD_MaxFreq > 0 && Settings.VFD_MinFreq >= 0 && Settings.VFD_MaxRPM > 0 && Settings.graphsForm.MeterRPM.Value >= 0)
@@ -271,7 +273,7 @@ namespace SpindleTalker2
                 groupBoxSpindleControl.Enabled = true;
                 Thread.Sleep(100);
 
-                if(Settings.graphsForm.MeterRPM.Value > 0)
+                if (Settings.graphsForm.MeterRPM.Value > 0)
                 {
                     //this.SuspendLayout();
                     buttonStart.Enabled = false;
@@ -287,11 +289,11 @@ namespace SpindleTalker2
             else
             {
                 Serial.InitialPoll();
-                if(stopWatchInitialPoll.ElapsedMilliseconds > howLongToWait)
+                if (stopWatchInitialPoll.ElapsedMilliseconds > howLongToWait)
                 {
                     timerInitialPoll.Stop();
 
-                    if(MessageBox.Show("The VFD does not appear to be responding. Do you wish to continue waiting", "No Response", MessageBoxButtons.YesNo,MessageBoxIcon.Warning,MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
+                    if (MessageBox.Show("The VFD does not appear to be responding. Do you wish to continue waiting", "No Response", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.Yes)
                     {
                         howLongToWait += 5000;
                         stopWatchInitialPoll.Reset();
@@ -300,6 +302,7 @@ namespace SpindleTalker2
                     }
                     else
                     {
+                        Serial.Disconnect();
                         Serial.InitialPollFinished();
                         COMPortStatus(false);
                         toolStripStatusLabelVFDStatus.Text = "VFD did not respond";
@@ -308,6 +311,8 @@ namespace SpindleTalker2
                 }
             }
         }
+
+        #endregion
 
     }
 

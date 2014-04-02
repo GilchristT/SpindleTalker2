@@ -53,6 +53,8 @@ namespace SpindleTalker2
 
         public static void InitialPoll()
         {
+            doNotPoll = true;
+
             byte[] packet = new byte[6];
             packet[0] = (byte)Settings.VFD_ModBusID;
             packet[1] = (byte)CommandType.ReadControlData;

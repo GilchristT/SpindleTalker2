@@ -167,6 +167,13 @@ namespace SpindleTalker2
             _settings.Save(settingsFile);
         }
 
+        public static void ClearVFDSettings()
+        {
+            VFD_MaxFreq = -1;
+            VFD_MinFreq = -1;
+            VFD_MaxRPM = -1;
+        }
+
     }
 
     #region Settings4Net
