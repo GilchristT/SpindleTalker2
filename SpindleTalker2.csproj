@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE3CAC28-4488-46CB-AE2D-FAA22A802A73}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SpindleTalker2</RootNamespace>
+    <AssemblyName>SpindleTalker2</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="gTrackBar, Version=1.0.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\gTrackBar.dll</HintPath>
+    </Reference>
+    <Reference Include="LBIndustrialCtrls">
+      <HintPath>.\LBIndustrialCtrls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enums.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CommandBuilder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CommandBuilder.Designer.cs">
+      <DependentUpon>CommandBuilder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GCSMeter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\GCSMeter.Designer.cs">
+      <DependentUpon>GCSMeter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIControls\MeterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MDIControls\MeterControl.Designer.cs">
+      <DependentUpon>MeterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SerialClass.cs" />
+    <Compile Include="UserControls\SetSpeedPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\SetSpeedPopup.Designer.cs">
+      <DependentUpon>SetSpeedPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIControls\TerminalControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MDIControls\TerminalControl.Designer.cs">
+      <DependentUpon>TerminalControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsClass.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MDIControls\SettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MDIControls\SettingsControl.Designer.cs">
+      <DependentUpon>SettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpindleClass.cs" />
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UserControls\CommandBuilder.resx">
+      <DependentUpon>CommandBuilder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\GCSMeter.resx">
+      <DependentUpon>GCSMeter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIControls\MeterControl.resx">
+      <DependentUpon>MeterControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SetSpeedPopup.resx">
+      <DependentUpon>SetSpeedPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIControls\TerminalControl.resx">
+      <DependentUpon>TerminalControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIControls\SettingsControl.resx">
+      <DependentUpon>SettingsControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\connect.png" />
+    <None Include="Graphics\disconnect.png" />
+    <None Include="Graphics\Start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\Stop red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\connect2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\disconnect2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\terminal48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\Settings48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\gauge48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\Reverse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\greenLED.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\orangeLED.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\redLED.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
